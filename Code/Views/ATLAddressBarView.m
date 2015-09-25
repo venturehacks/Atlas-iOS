@@ -32,7 +32,7 @@
 @implementation ATLAddressBarView
 
 CGFloat const ATLAddressBarTextViewPadding = 4;
-CGFloat const ATLAddContactButtonRightPadding = -8;
+CGFloat const ATLAddContactButtonRightPadding = -16;
 NSString *const ATLAddContactsButtonAccessibilityLabel = @"Add Contacts Button";
 
 - (id)init
@@ -65,7 +65,7 @@ NSString *const ATLAddContactsButtonAccessibilityLabel = @"Add Contacts Button";
     _addContactsButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
     _addContactsButton.translatesAutoresizingMaskIntoConstraints = NO;
     _addContactsButton.accessibilityLabel = ATLAddContactsButtonAccessibilityLabel;
-    _addContactsButton.tintColor = ATLBlueColor();
+    _addContactsButton.tintColor = [UIColor colorWithRed:0.25 green:0.51 blue:0.78 alpha:1.0];
     [self addSubview:_addContactsButton];
     
     _bottomBorder = [[UIView alloc] init];

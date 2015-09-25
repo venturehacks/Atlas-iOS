@@ -55,7 +55,7 @@
 @implementation ATLConversationViewController
 
 static NSInteger const ATLMoreMessagesSection = 0;
-static NSString *const ATLPushNotificationSoundName = @"layerbell.caf";
+static NSString *const ATLPushNotificationSoundName = @"default";
 static NSString *const ATLDefaultPushAlertGIF = @"sent you a GIF.";
 static NSString *const ATLDefaultPushAlertImage = @"sent you a photo.";
 static NSString *const ATLDefaultPushAlertLocation = @"sent you a location.";
@@ -108,7 +108,7 @@ static NSInteger const ATLPhotoActionSheet = 1000;
 {
     _dateDisplayTimeInterval = 60*60;
     _marksMessagesAsRead = YES;
-    _shouldDisplayAvatarItemForOneOtherParticipant = NO;
+    _shouldDisplayAvatarItemForOneOtherParticipant = YES;
     _shouldDisplayAvatarItemForAuthenticatedUser = NO;
     _avatarItemDisplayFrequency = ATLAvatarItemDisplayFrequencySection;
     _typingParticipantIDs = [NSMutableOrderedSet new];
@@ -155,7 +155,7 @@ static NSInteger const ATLPhotoActionSheet = 1000;
 {
     [super viewWillAppear:animated];
     if (self.addressBarController && self.conversation.lastMessage && self.canDisableAddressBar) {
-        [self.addressBarController disable];
+        // [self.addressBarController disable];
         [self configureAddressBarForConversation];
     }
     
@@ -173,7 +173,7 @@ static NSInteger const ATLPhotoActionSheet = 1000;
     [super viewDidAppear:animated];
     self.hasAppeared = YES;
     
-    if (self.addressBarController && !self.addressBarController.isDisabled) {
+    if (self.addressBarController && !self.addressBarController.isDisabled && self.addressBarController.selectedParticipants.count == 0) {
         [self.addressBarController.addressBarView.addressBarTextView becomeFirstResponder];
     }
 }
@@ -484,7 +484,7 @@ static NSInteger const ATLPhotoActionSheet = 1000;
 
 - (BOOL)shouldDisplaySenderLabelForSection:(NSUInteger)section
 {
-    if (self.conversation.participants.count <= 2) return NO;
+    if (self.conversation.participants.count < 2) return NO;
     
     LYRMessage *message = [self.conversationDataSource messageAtCollectionViewSection:section];
     if ([message.sender.userID isEqualToString:self.layerClient.authenticatedUserID]) return NO;
@@ -882,6 +882,16 @@ static NSInteger const ATLPhotoActionSheet = 1000;
 {
     self.canDisableAddressBar = NO;
     [self configureConversationForAddressBar];
+
+    if (!self.conversation) {
+        NSDictionary *options = @{LYRConversationOptionsDeliveryReceiptsEnabledKey: @(true)};
+        self.conversation = [self.layerClient newConversationWithParticipants:[[NSSet alloc] init] options:options error:nil];
+    }
+
+    ALUser* user = (ALUser*)participant;
+    NSSet *set = [[NSSet alloc] initWithObjects:user.participantIdentifier, nil];
+    [self.conversation addParticipants:set error:nil];
+    [self configureAddressBarForChangedParticipants];
 }
 
 - (void)addressBarViewController:(ATLAddressBarViewController *)addressBarViewController didRemoveParticipant:(id<ATLParticipant>)participant
@@ -941,9 +951,11 @@ static NSInteger const ATLPhotoActionSheet = 1000;
         [conversationParticipantsCopy removeObject:authenticatedUserID];
     }
     if ([participantIdentifiers isEqual:conversationParticipantsCopy]) return;
-    
-    LYRConversation *conversation = [self conversationWithParticipants:participants];
-    self.conversation = conversation;
+
+    if (!self.conversation) {
+        LYRConversation *conversation = [self conversationWithParticipants:participants];
+        self.conversation = conversation;
+    }
 }
 
 #pragma mark - Address Bar Configuration
@@ -971,8 +983,8 @@ static NSInteger const ATLPhotoActionSheet = 1000;
     [participantIdentifiers minusOrderedSet:removedIdentifiers];
     [participantIdentifiers unionOrderedSet:addedIdentifiers];
     
-    NSOrderedSet *participants = [self participantsForIdentifiers:participantIdentifiers];
-    self.addressBarController.selectedParticipants = participants;
+    // NSOrderedSet *participants = [self participantsForIdentifiers:participantIdentifiers];
+    // self.addressBarController.selectedParticipants = participants;
 }
 
 #pragma mark - Public Methods
@@ -1090,6 +1102,10 @@ static NSInteger const ATLPhotoActionSheet = 1000;
 
 - (id<ATLParticipant>)participantForIdentifier:(NSString *)identifier
 {
+    if (identifier == nil) {
+        return nil;
+    }
+
     if ([self.dataSource respondsToSelector:@selector(conversationViewController:participantForIdentifier:)]) {
         return [self.dataSource conversationViewController:self participantForIdentifier:identifier];
     } else {

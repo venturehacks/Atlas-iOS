@@ -117,6 +117,7 @@ NSString *const ATLConversationListViewControllerDeletionModeGlobal = @"Global";
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectZero];
     [self.searchBar sizeToFit];
     self.searchBar.translucent = NO;
+    self.searchBar.placeholder = @"Search Participants";
     self.searchBar.accessibilityLabel = @"Search Bar";
     self.searchBar.delegate = self;
     self.tableView.tableHeaderView = self.searchBar;
@@ -140,7 +141,7 @@ NSString *const ATLConversationListViewControllerDeletionModeGlobal = @"Global";
         self.tableView.contentOffset = CGPointMake(0, contentOffset);
         self.tableView.rowHeight = self.rowHeight;
         [self.tableView registerClass:self.cellClass forCellReuseIdentifier:ATLConversationCellReuseIdentifier];
-        if (self.allowsEditing) [self addEditButton];
+        //if (self.allowsEditing) [self addEditButton];
     }
     if (!self.queryController) {
         [self setupConversationDataSource];
@@ -325,7 +326,7 @@ NSString *const ATLConversationListViewControllerDeletionModeGlobal = @"Global";
         } else {
             switch (deletionMode.integerValue) {
                 case LYRDeletionModeLocal:
-                    actionString = ATLLocalizedString(@"atl.conversationlist.deletionmode.local.key", ATLConversationListViewControllerDeletionModeLocal, nil);
+                    actionString = @"Delete";//ATLLocalizedString(@"atl.conversationlist.deletionmode.local.key", ATLConversationListViewControllerDeletionModeLocal, nil);
                     break;
                 case LYRDeletionModeAllParticipants:
                     actionString = ATLLocalizedString(@"atl.conversationlist.deletionmode.global.key", ATLConversationListViewControllerDeletionModeGlobal, nil);

@@ -69,8 +69,8 @@ static CGFloat const ATLButtonHeight = 28.0f;
         self.translatesAutoresizingMaskIntoConstraints = NO;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         
-        self.leftAccessoryImage = [UIImage imageNamed:@"AtlasResource.bundle/camera_dark"];
-        self.rightAccessoryImage = [UIImage imageNamed:@"AtlasResource.bundle/location_dark"];
+        self.leftAccessoryImage = [UIImage imageNamed:@"camera_dark"];
+        self.rightAccessoryImage = [UIImage imageNamed:@"location_dark"];
         self.displaysRightAccessoryImage = YES;
         self.firstAppearance = YES;
         

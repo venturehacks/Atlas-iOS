@@ -53,7 +53,7 @@ static NSString *const ATLAddressBarParticipantAttributeName = @"ATLAddressBarPa
     self.addressBarView = [[ATLAddressBarView alloc] init];
     self.addressBarView.translatesAutoresizingMaskIntoConstraints = NO;
     self.addressBarView.accessibilityLabel = ATLAddressBarViewAccessibilityLabel;
-    self.addressBarView.backgroundColor = ATLAddressBarGray();
+    self.addressBarView.backgroundColor = [UIColor colorWithRed:0.961 green:0.961 blue:0.965 alpha:1];
     self.addressBarView.addressBarTextView.delegate = self;
     [self.addressBarView.addContactsButton addTarget:self action:@selector(contactButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.addressBarView];

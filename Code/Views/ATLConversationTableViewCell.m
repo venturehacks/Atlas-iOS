@@ -25,7 +25,7 @@
 
 static BOOL ATLIsDateInToday(NSDate *date)
 {
-    NSCalendarUnit dateUnits = NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSCalendarUnit dateUnits = NSCalendarUnitEra | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:dateUnits fromDate:date];
     NSDateComponents *todayComponents = [[NSCalendar currentCalendar] components:dateUnits fromDate:[NSDate date]];
     return ([dateComponents day] == [todayComponents day] &&
@@ -153,7 +153,7 @@ static CGFloat const ATLChevronIconViewRightPadding = 14.0f;
     
     _chevronIconView = [[UIImageView alloc] init];
     _chevronIconView.translatesAutoresizingMaskIntoConstraints = NO;
-    _chevronIconView.image = [UIImage imageNamed:@"AtlasResource.bundle/chevron"];
+    _chevronIconView.image = [UIImage imageNamed:@"chevron"];
     [self.contentView addSubview:_chevronIconView];
     
     [self configureConversationImageViewLayoutContraints];
@@ -333,6 +333,7 @@ static CGFloat const ATLChevronIconViewRightPadding = 14.0f;
 {
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.dateLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-ATLDateLabelRightPadding]];
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.dateLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.conversationTitleLabel attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0f]];
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.dateLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:ATLConversationLabelTopPadding]];
     // We want the conversation label to compress if needed instead of the date label.
     [self.dateLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh + 1 forAxis:UILayoutConstraintAxisHorizontal];
 }
