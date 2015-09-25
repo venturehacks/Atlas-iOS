@@ -888,8 +888,7 @@ static NSInteger const ATLPhotoActionSheet = 1000;
         self.conversation = [self.layerClient newConversationWithParticipants:[[NSSet alloc] init] options:options error:nil];
     }
 
-    ALUser* user = (ALUser*)participant;
-    NSSet *set = [[NSSet alloc] initWithObjects:user.participantIdentifier, nil];
+    NSSet *set = [[NSSet alloc] initWithObjects:participant.participantIdentifier, nil];
     [self.conversation addParticipants:set error:nil];
     [self configureAddressBarForChangedParticipants];
 }
