@@ -113,7 +113,9 @@ NSString *const ATLConversationListViewControllerDeletionModeGlobal = @"Global";
     self.tableView.accessibilityIdentifier = ATLConversationTableViewAccessibilityIdentifier;
     self.tableView.isAccessibilityElement = YES;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
+    [self.tableView registerClass:self.cellClass forCellReuseIdentifier:ATLConversationCellReuseIdentifier];
+    self.tableView.rowHeight = self.rowHeight;
+
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectZero];
     [self.searchBar sizeToFit];
     self.searchBar.translucent = NO;
@@ -135,14 +137,6 @@ NSString *const ATLConversationListViewControllerDeletionModeGlobal = @"Global";
 {
     [super viewWillAppear:animated];
     
-    // Hide the search bar
-    if (!self.hasAppeared) {
-        CGFloat contentOffset = self.tableView.contentOffset.y + self.searchBar.frame.size.height;
-        self.tableView.contentOffset = CGPointMake(0, contentOffset);
-        self.tableView.rowHeight = self.rowHeight;
-        [self.tableView registerClass:self.cellClass forCellReuseIdentifier:ATLConversationCellReuseIdentifier];
-        //if (self.allowsEditing) [self addEditButton];
-    }
     if (!self.queryController) {
         [self setupConversationDataSource];
     }
@@ -162,6 +156,17 @@ NSString *const ATLConversationListViewControllerDeletionModeGlobal = @"Global";
 {
     [super viewDidAppear:animated];
     self.hasAppeared = YES;
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    // Hide the search bar
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        CGFloat contentOffset = self.tableView.contentOffset.y + self.searchBar.frame.size.height;
+        self.tableView.contentOffset = CGPointMake(0, contentOffset);
+    });
 }
 
 #pragma mark - Public Setters
