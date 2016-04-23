@@ -114,17 +114,9 @@
 		D6A122B51A9D2CA2004F67BE /* ATLTestClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F4060A1A8FDEEB00AE9581 /* ATLTestClasses.m */; };
 		D6A122B61A9D2CA2004F67BE /* ATLTestInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F4060C1A8FDEEB00AE9581 /* ATLTestInterface.m */; };
 		D6A122B71A9D2CA2004F67BE /* LYRClientMockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F4060D1A8FDEEB00AE9581 /* LYRClientMockTests.m */; };
-		D6A122B81A9D2CA2004F67BE /* ATLConversationTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406021A8FDEEB00AE9581 /* ATLConversationTableViewCellTest.m */; };
-		D6A122B91A9D2CA2004F67BE /* ATLMessageCollectionViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406041A8FDEEB00AE9581 /* ATLMessageCollectionViewCellTest.m */; };
-		D6A122BA1A9D2CA2004F67BE /* ATLParticipantTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406081A8FDEEB00AE9581 /* ATLParticipantTableViewCellTest.m */; };
-		D6A122BB1A9D2CA2004F67BE /* ATLConversationListViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406011A8FDEEB00AE9581 /* ATLConversationListViewControllerTest.m */; };
 		D6A122BC1A9D2CA2004F67BE /* ATLConversationViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406031A8FDEEB00AE9581 /* ATLConversationViewControllerTest.m */; };
-		D6A122BD1A9D2CA2004F67BE /* ATLMessageInputBarTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406051A8FDEEB00AE9581 /* ATLMessageInputBarTest.m */; };
-		D6A122BE1A9D2CA2004F67BE /* ATLParticipantTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406071A8FDEEB00AE9581 /* ATLParticipantTableViewControllerTest.m */; };
-		D6A122BF1A9D2CA2004F67BE /* ALTAddressBarControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0454E1A9953C70028E9D0 /* ALTAddressBarControllerTest.m */; };
 		D6C045451A9914090028E9D0 /* ProgrammaticAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C045441A9914080028E9D0 /* ProgrammaticAppDelegate.m */; };
 		D6C0454B1A9941CD0028E9D0 /* test-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D63C68DF1A94250000D235D5 /* test-logo.png */; };
-		D6C0454F1A9953C70028E9D0 /* ALTAddressBarControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0454E1A9953C70028E9D0 /* ALTAddressBarControllerTest.m */; };
 		D6D48F851A9D140F00C8872E /* LYRClientMock.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F405B71A8FDDE300AE9581 /* LYRClientMock.m */; };
 		D6D48F861A9D140F00C8872E /* LYRConversationMock.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F405B91A8FDDE300AE9581 /* LYRConversationMock.m */; };
 		D6D48F871A9D140F00C8872E /* LYRMessageMock.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F405BB1A8FDDE300AE9581 /* LYRMessageMock.m */; };
@@ -152,13 +144,7 @@
 		D6F405E71A8FDE3900AE9581 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6F405E21A8FDE3900AE9581 /* Images.xcassets */; };
 		D6F405E91A8FDE3900AE9581 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F405E41A8FDE3900AE9581 /* main.m */; };
 		D6F406261A8FDF5900AE9581 /* StoryboardAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F405D61A8FDE1B00AE9581 /* StoryboardAppDelegate.m */; };
-		D6F4062C1A8FE28000AE9581 /* ATLConversationListViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406011A8FDEEB00AE9581 /* ATLConversationListViewControllerTest.m */; };
-		D6F4062D1A8FE28000AE9581 /* ATLConversationTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406021A8FDEEB00AE9581 /* ATLConversationTableViewCellTest.m */; };
 		D6F4062E1A8FE28000AE9581 /* ATLConversationViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406031A8FDEEB00AE9581 /* ATLConversationViewControllerTest.m */; };
-		D6F4062F1A8FE28000AE9581 /* ATLMessageCollectionViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406041A8FDEEB00AE9581 /* ATLMessageCollectionViewCellTest.m */; };
-		D6F406301A8FE28000AE9581 /* ATLMessageInputBarTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406051A8FDEEB00AE9581 /* ATLMessageInputBarTest.m */; };
-		D6F406321A8FE28000AE9581 /* ATLParticipantTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406071A8FDEEB00AE9581 /* ATLParticipantTableViewControllerTest.m */; };
-		D6F406331A8FE28000AE9581 /* ATLParticipantTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F406081A8FDEEB00AE9581 /* ATLParticipantTableViewCellTest.m */; };
 		D6F406341A8FE28600AE9581 /* ATLTestClasses.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F4060A1A8FDEEB00AE9581 /* ATLTestClasses.m */; };
 		D6F406351A8FE28900AE9581 /* LYRClientMockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F4060D1A8FDEEB00AE9581 /* LYRClientMockTests.m */; };
 		D6F406361A8FE28C00AE9581 /* ATLTestInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F4060C1A8FDEEB00AE9581 /* ATLTestInterface.m */; };
@@ -1376,16 +1362,9 @@
 				D6F406361A8FE28C00AE9581 /* ATLTestInterface.m in Sources */,
 				D6F406351A8FE28900AE9581 /* LYRClientMockTests.m in Sources */,
 				D6F406341A8FE28600AE9581 /* ATLTestClasses.m in Sources */,
-				D6F4062C1A8FE28000AE9581 /* ATLConversationListViewControllerTest.m in Sources */,
-				D6F4062D1A8FE28000AE9581 /* ATLConversationTableViewCellTest.m in Sources */,
 				D6F4062E1A8FE28000AE9581 /* ATLConversationViewControllerTest.m in Sources */,
 				5AF32FD31AA59C39005C13D7 /* ATLUserMockTest.m in Sources */,
-				D6F4062F1A8FE28000AE9581 /* ATLMessageCollectionViewCellTest.m in Sources */,
-				D6F406301A8FE28000AE9581 /* ATLMessageInputBarTest.m in Sources */,
-				D6C0454F1A9953C70028E9D0 /* ALTAddressBarControllerTest.m in Sources */,
 				5A86A2D11B82BB11005AF74B /* ATLMessageCollectionViewCellTests.m in Sources */,
-				D6F406321A8FE28000AE9581 /* ATLParticipantTableViewControllerTest.m in Sources */,
-				D6F406331A8FE28000AE9581 /* ATLParticipantTableViewCellTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1417,15 +1396,8 @@
 				D6A122B51A9D2CA2004F67BE /* ATLTestClasses.m in Sources */,
 				D6A122B61A9D2CA2004F67BE /* ATLTestInterface.m in Sources */,
 				D6A122B71A9D2CA2004F67BE /* LYRClientMockTests.m in Sources */,
-				D6A122B81A9D2CA2004F67BE /* ATLConversationTableViewCellTest.m in Sources */,
-				D6A122B91A9D2CA2004F67BE /* ATLMessageCollectionViewCellTest.m in Sources */,
-				D6A122BA1A9D2CA2004F67BE /* ATLParticipantTableViewCellTest.m in Sources */,
-				D6A122BB1A9D2CA2004F67BE /* ATLConversationListViewControllerTest.m in Sources */,
 				D6A122BC1A9D2CA2004F67BE /* ATLConversationViewControllerTest.m in Sources */,
-				D6A122BD1A9D2CA2004F67BE /* ATLMessageInputBarTest.m in Sources */,
-				D6A122BE1A9D2CA2004F67BE /* ATLParticipantTableViewControllerTest.m in Sources */,
 				5A86A2D21B82BB11005AF74B /* ATLMessageCollectionViewCellTests.m in Sources */,
-				D6A122BF1A9D2CA2004F67BE /* ALTAddressBarControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
